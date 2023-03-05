@@ -4,12 +4,12 @@
 
 ### For all questions and suggestions, you can contact here:
 
-- telegram: [https://t.me/kvvprof](https://t.me/kvvprof)
-- email: [kvv.prof@gmail.com](kvv.prof@gmail.com)
+- telegram: <a href="https://t.me/kvvprof" target="_blank">https://t.me/kvvprof</a>
+- email: <a href="kvv.prof@gmail.com" target="_blank">kvv.prof@gmail.com</a>
 
 <br />
 
-## 👉 Demo: [https://habits-tracker.ru](https://habits-tracker.ru)
+## 👉 Demo: <a href="https://habits-tracker.ru" target="_blank">https://habits-tracker.ru</a>
 
 <img src="screenshot.png"  width="350" height="400">
 
@@ -51,10 +51,10 @@ Stack: docker, docker compose, nginx, certbot, vds by selectel
 
 Docker compose services:
 
-- **client**: nginx + react build => [https://habits-tracker.ru/](https://habits-tracker.ru/)
-- **api**: nodejs + nestjs build => [https://habits-tracker.ru/api/swagger](https://habits-tracker.ru/api/swagger)
-- **postgres**: PostgreSQL database
-- **adminer**: adminer => [https://habits-tracker.ru/adminer](https://habits-tracker.ru/adminer)
+- **client**: nginx + react build => <a href="https://habits-tracker.ru" target="_blank">https://habits-tracker.ru</a>
+- **api**: nodejs + nestjs build => <a href="https://habits-tracker.ru/api/swagger" target="_blank">https://habits-tracker.ru/api/swagger</a>
+- **postgres**: postgresql database
+- **adminer**: adminer => <a href="https://habits-tracker.ru/adminer" target="_blank">https://habits-tracker.ru/adminer</a>
 - **proxy**: nginx
 - **certbot**: certbot
 
