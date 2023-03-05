@@ -4,12 +4,12 @@
 
 ### For all questions and suggestions, you can contact here:
 
-- telegram: https://t.me/kvvprof
-- email: kvv.prof@gmail.com
+- telegram: [https://t.me/kvvprof](https://t.me/kvvprof)
+- email: [kvv.prof@gmail.com](kvv.prof@gmail.com)
 
 <br />
 
-## 👉 Demo: https://habits-tracker.ru
+## 👉 Demo: [https://habits-tracker.ru](https://habits-tracker.ru)
 
 <img src="screenshot.png"  width="350" height="400">
 
@@ -51,12 +51,12 @@ Stack: docker, docker compose, nginx, certbot, vds by selectel
 
 Docker compose services:
 
-- client (nginx + react build => [https://habits-tracker.ru/]())
-- api (nodejs + nestjs build => [https://habits-tracker.ru/api/swagger]())
-- postgres (PostgreSQL database)
-- adminer (adminer => [https://habits-tracker.ru/adminer]())
-- proxy (nginx)
-- certbot (certbot)
+- **client**: nginx + react build => [https://habits-tracker.ru/](https://habits-tracker.ru/)
+- **api**: nodejs + nestjs build => [https://habits-tracker.ru/api/swagger](https://habits-tracker.ru/api/swagger)
+- **postgres**: PostgreSQL database
+- **adminer**: adminer => [https://habits-tracker.ru/adminer](https://habits-tracker.ru/adminer)
+- **proxy**: nginx
+- **certbot**: certbot
 
 <br />
 
