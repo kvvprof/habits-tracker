@@ -7,6 +7,8 @@
 - telegram: https://t.me/kvvprof
 - email: kvv.prof@gmail.com
 
+<br />
+
 ## 👉 Demo: https://habits-tracker.ru
 
 <img src="screenshot.png"  width="350" height="400">
