@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './fonts/fonts.css';
+
+@layer base {
+	:root {
+		--c-white: #ffffff;
+		--c-white-2: #fdfcff;
+
+		--c-gray: #f3f4f6;
+		--c-gray-2: #e8eaed;
+		--c-gray-3: #9ea3ae;
+		--c-gray-4: #757575;
+		--c-gray-5: #26282a;
+
+		--c-pink: #dbbad2;
+		--c-green: #9dbc93;
+		--c-carrot: #e49c80;
+		--c-yellow: #f6eab2;
+		--c-black: #1e1e20;
+		--c-blue: #4446f5;
+	}
+}
+
+:focus,
+:active {
+	outline: none;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	border-radius: 100vh;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--c-gray);
+	border-radius: 100vh;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--c-gray-2);
+}
+
+.dark ::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb:hover {
+	background: var(--c-black);
+}
+
+body {
+	font-family: 'Lab Grotesque', sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: var(--c-black);
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 22px;
+}
+
+h2 {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+h3 {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 22px;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark span,
+.dark div,
+.dark button {
+	color: var(--c-white-2);
+}
+
+.dark a {
+	color: var(--c-gray-3);
+}
+
+.dark a:hover {
+	color: var(--c-white-2);
+}
+
+.app-input {
+	border-radius: 16px;
+	background-color: var(--c-gray);
+	padding: 12px;
+}
+
+.dark .app-input {
+	background-color: var(--c-black);
+}
+
+.app-input:hover {
+	background-color: var(--c-gray-2);
+}
+
+.dark .app-input:hover {
+	background-color: var(--c-black);
+}
+
+.navigation-icon {
+	height: 40px;
+	width: 40px;
+}
+
+.box {
+	padding: 16px;
+	background-color: var(--c-gray);
+	border-radius: 16px;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dark .box {
+	background-color: var(--c-black);
+}
+
+.box-2 {
+	background-color: var(--c-white);
+	border-radius: 16px;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	justify-items: center;
+}
+
+.dark .box-2 {
+	background-color: var(--c-gray-5);
+}
+
+@media screen and (max-width: 575px) {
+	body {
+		font-size: 14px;
+	}
+
+	h1 {
+		font-size: 18px;
+	}
+
+	h2 {
+		font-size: 16px;
+	}
+
+	h3 {
+		font-size: 14px;
+	}
+
+	.navigation-icon {
+		height: 30px;
+		width: 30px;
+	}
+}
+
+@media screen and (max-width: 345px) {
+	body {
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: 16px;
+	}
+
+	.navigation-icon {
+		height: 20px;
+		width: 20px;
+	}
+
+	.box,
+	.box-2 {
+		padding: 5px;
+	}
+}

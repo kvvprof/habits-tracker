@@ -1,0 +1,67 @@
+version: '3'
+
+services:
+  client:
+    container_name: client
+    image: kvvprof/ht-client:v1
+    restart: always
+
+  api:
+    container_name: api
+    image: kvvprof/ht-api:v1
+    restart: always
+    environment:
+      PORT: ...
+      DATABASE_URL: ...
+      JWT_SECRET: ...
+      MAIL_HOST: ...
+      MAIL_PORT: ...
+      MAIL_USER: ...
+      MAIL_PASS: ...
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    container_name: postgres
+    image: postgres:15.2-alpine3.17
+    restart: always
+    environment:
+      POSTGRES_USER: ...
+      POSTGRES_PASSWORD: ...
+      POSTGRES_DB: ...
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'admin', '-d', 'habits_tracker']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.8.1
+    restart: always
+
+  proxy:
+    container_name: proxy
+    image: kvvprof/ht-proxy:v1
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    depends_on:
+      - api
+      - client
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+
+volumes:
+  postgres_data:

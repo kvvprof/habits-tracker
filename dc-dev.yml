@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  client:
+    container_name: client
+    build:
+      context: ./client
+      dockerfile: df-dev
+    restart: always
+    ports:
+      - '3330:3000'
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+
+  api:
+    container_name: api
+    build:
+      context: ./api
+      dockerfile: df-dev
+    restart: always
+    ports:
+      - '3331:3001'
+    environment:
+      PORT: ...
+      DATABASE_URL: ...
+      JWT_SECRET: ...
+      MAIL_HOST: ...
+      MAIL_PORT: ...
+      MAIL_USER: ...
+      MAIL_PASS: ...
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    container_name: postgres
+    image: postgres:15.2-alpine3.17
+    restart: always
+    environment:
+      POSTGRES_USER: ...
+      POSTGRES_PASSWORD: ...
+      POSTGRES_DB: ...
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'admin', '-d', 'habits_tracker']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    container_name: adminer
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - '8888:8080'
+
+volumes:
+  postgres_data:
