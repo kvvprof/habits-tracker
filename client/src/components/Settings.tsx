@@ -98,6 +98,7 @@ const Password = () => {
 							{...register('password', { required: true })}
 							placeholder='Введите новый пароль'
 							type={isPassword ? 'password' : 'text'}
+							autoComplete='new-password'
 							minLength={6}
 							maxLength={100}
 						/>

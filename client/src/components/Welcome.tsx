@@ -167,6 +167,7 @@ const Form = (props: FormPropsType) => {
 									type={isPassword ? 'password' : 'text'}
 									minLength={6}
 									maxLength={100}
+									autoComplete={isRegistration ? 'new-password' : 'current-password'}
 								/>
 								{isPassword ? (
 									<EyeIcon
