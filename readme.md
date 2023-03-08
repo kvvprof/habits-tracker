@@ -11,7 +11,7 @@
 
 ## 👉 Demo: [https://habits-tracker.ru](https://habits-tracker.ru)
 
-<img src="screenshot.png"  width="350" height="400">
+<img src="screenshot.png">
 
 <br />
 
