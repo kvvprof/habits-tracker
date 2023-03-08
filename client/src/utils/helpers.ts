@@ -10,15 +10,26 @@ export const parseDate = (timestamp: Date): string => {
 };
 
 export const getProgress = (
-	startTimestamp: Date | number = 0,
-	endTimestamp: Date | number = 0,
-	duration: number = 0
+	createdAt: Date | undefined,
+	updatedAt: Date | undefined,
+	duration: number | undefined,
+	status: UserHabitStatusEnum | undefined
 ): { days: number; progress: number } => {
-	const days = Math.round((+new Date(startTimestamp) - +new Date(endTimestamp)) / (1000 * 60 * 60 * 24));
+	if (!createdAt || !updatedAt || !duration || !status) {
+		return { days: 0, progress: 0 };
+	}
 
-	const progress = Math.round((days / duration) * 100);
+	const timestamp_1: number = +new Date(createdAt);
+	const timestamp_2: number = status === UserHabitStatusEnum.fail ? +new Date(updatedAt) : Date.now();
 
-	return { days, progress };
+	const days: number = Math.round((timestamp_2 - timestamp_1) / (1000 * 60 * 60 * 24));
+	const progress: number = Math.round((days / duration) * 100);
+
+	if (days > duration) {
+		return { days: duration, progress: 100 };
+	} else {
+		return { days: days, progress: progress };
+	}
 };
 
 export const getPartOfTheDay = (): string => {

@@ -28,9 +28,10 @@ export const Details = () => {
 	const { days, progress } = useMemo(
 		() =>
 			getProgress(
-				userHabitState?.status !== UserHabitStatusEnum.progress ? userHabitState?.updatedAt : Date.now(),
 				userHabitState?.createdAt,
-				userHabitState?.duration
+				userHabitState?.updatedAt,
+				userHabitState?.duration,
+				userHabitState?.status
 			),
 		[userHabitState?.status, userHabitState?.updatedAt, userHabitState?.createdAt, userHabitState?.duration]
 	);
@@ -221,7 +222,9 @@ export const Details = () => {
 									{userHabitState.duration > days && `| осталось ${userHabitState.duration - days} дн.`}
 								</span>
 
-								{userHabitState.duration === days && <Indicator />}
+								{days === userHabitState.duration && userHabitState.status === UserHabitStatusEnum.progress && (
+									<Indicator />
+								)}
 							</Button>
 						</div>
 					)}

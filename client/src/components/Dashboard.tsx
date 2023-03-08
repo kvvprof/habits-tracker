@@ -32,8 +32,8 @@ const Card = (props: CardPropsType) => {
 	const matches = useMediaQuery('(max-width: 576px)');
 
 	const { days, progress } = useMemo(
-		() => getProgress(status !== UserHabitStatusEnum.progress ? updatedAt : Date.now(), createdAt, duration),
-		[createdAt, duration, status, updatedAt]
+		() => getProgress(createdAt, updatedAt, duration, status),
+		[createdAt, updatedAt, duration, status]
 	);
 
 	return (
